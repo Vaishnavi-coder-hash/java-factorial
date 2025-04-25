@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class factorial {
     
     // Method to calculate factorial
@@ -14,14 +12,17 @@ public class factorial {
         return result;
     }
 
-    public static void main(String[] args) {      
+    public static void main(String[] args) {
+        // Taking input from the command line argument
+        if (args.length != 1) {
+            System.out.println("Please provide exactly one number.");
+            return;
+        }
+        
         try {
-            Scanner in=new Scanner(System.in);
-            System.out.println("Enter a number:");
-            int number = Integer.parseInt(in.next());
+            int number = Integer.parseInt(args[0]);
             int result = calculateFactorial(number);
             System.out.println("The factorial of " + number + " is: " + result);
-            in.close();
         } catch (NumberFormatException e) {
             System.out.println("Please provide a valid integer.");
         }
